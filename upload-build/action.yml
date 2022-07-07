@@ -42,7 +42,7 @@ runs:
         node-version: 12
 
     - name: Setup Tools
-      run:  npm install --location=global appcenter-cli
+      run: sudo npm install -g appcenter-cli
       shell: bash
 
     - name: Upload Build

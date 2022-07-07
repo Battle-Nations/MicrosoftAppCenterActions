@@ -39,10 +39,10 @@ runs:
   steps:
     - uses: actions/setup-node@v3
       with:
-        node-version: 12
+        node-version: 16
 
     - name: Setup Tools
-      run: sudo npm install -g appcenter-cli
+      run: sudo npm install --location=global appcenter-cli
       shell: bash
 
     - name: Upload Build

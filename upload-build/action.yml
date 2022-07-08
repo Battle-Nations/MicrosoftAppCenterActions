@@ -33,6 +33,8 @@ inputs:
     description: "If set to true, shows useful debug information from the action execution."
   symbolPath:
     description: "Path to the symbols file"
+  symbolType:
+    description: "Type of the symbols file. Can be one of: symbol, breakpad"
   
 runs:
   using: "composite"
@@ -79,6 +81,6 @@ runs:
         done
 
         if [ "${{ inputs.symbolPath }}" ]; then
-          appcenter crashes upload-symbols --symbol ${{ inputs.symbolPath }} --token "${{ inputs.token }}" --app "${{ inputs.appName }}"
+          appcenter crashes upload-symbols --${{ inputs.symbolType }} ${{ inputs.symbolPath }} --token "${{ inputs.token }}" --app "${{ inputs.appName }}"
         fi
       shell: bash
